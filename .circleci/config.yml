@@ -1,1 +1,1 @@
-"version: 2.1\njobs:\n  build:\n    docker:\n      - image: circleci/python:3.8\n    steps:\n      - checkout\n      - run:\n          name: Print Hello World\n          command: echo 'Hello, World!'\nworkflows:\n  version: 2\n  build_and_test:\n    jobs:\n      - build\n"
+version: 2.2
