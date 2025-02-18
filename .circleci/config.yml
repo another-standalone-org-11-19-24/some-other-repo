@@ -1,16 +1,46 @@
 version: 2.1
 jobs:
-  hello_world:
+  hello_world_5:
     docker:
       - image: circleci/python:3.8
     steps:
       - run:
-          name: Wait and Print Hello World
+          name: Sleep 5 seconds and Print Hello World
           command: |
-            sleep 30
+            sleep 5
+            echo "Hello, World!"
+  hello_world_10:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run:
+          name: Sleep 10 seconds and Print Hello World
+          command: |
+            sleep 10
+            echo "Hello, World!"
+  hello_world_15:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run:
+          name: Sleep 15 seconds and Print Hello World
+          command: |
+            sleep 15
+            echo "Hello, World!"
+  hello_world_20:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run:
+          name: Sleep 20 seconds and Print Hello World
+          command: |
+            sleep 20
             echo "Hello, World!"
 workflows:
   version: 2
-  hello_world_workflow:
+  sleep_workflows:
     jobs:
-      - hello_world
+      - hello_world_5
+      - hello_world_10
+      - hello_world_15
+      - hello_world_20
