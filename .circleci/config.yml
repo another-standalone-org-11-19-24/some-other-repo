@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  hello_world:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run:
+          name: Wait and Print Hello World
+          command: |
+            sleep 25
+            echo "Hello, World!"
+workflows:
+  version: 2
+  hello_world_workflow:
+    jobs:
+      - hello_world
