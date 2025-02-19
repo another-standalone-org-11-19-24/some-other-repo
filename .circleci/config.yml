@@ -14,10 +14,11 @@ jobs:
       - image: circleci/python:3.8
     steps:
       - run:
-          name: Sleep 14 seconds and Print Hello World
+          name: Sleep 14 seconds and Fail
           command: |
             sleep 14
-            echo "Hello, World!"
+            echo "This job will fail intentionally"
+            exit 1
   hello_world_21:
     docker:
       - image: circleci/python:3.8
