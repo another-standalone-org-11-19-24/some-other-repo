@@ -51,3 +51,9 @@ workflows:
       - hello_world_14
       - hello_world_21
       - hello_world_30
+  new_workflow:
+    jobs:
+      - hello_world_7
+      - hello_world_14
+      - hello_world_21
+      - hello_world_30
