@@ -39,7 +39,7 @@ jobs:
             echo "Hello, World!"
 workflows:
   version: 2
-  sleep_workflows:
+  parallel_sleep_workflows:
     jobs:
       - hello_world_7
       - hello_world_14
