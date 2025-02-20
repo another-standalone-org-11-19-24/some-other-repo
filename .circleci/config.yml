@@ -37,6 +37,15 @@ jobs:
           command: |
             sleep 30
             echo "Hello, World!"
+  hello_world_45:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run:
+          name: Sleep 45 seconds and Print Hello World
+          command: |
+            sleep 45
+            echo "Hello, World!"
 workflows:
   version: 2
   new_workflow:
@@ -45,3 +54,4 @@ workflows:
       - hello_world_14
       - hello_world_21
       - hello_world_30
+      - hello_world_45
