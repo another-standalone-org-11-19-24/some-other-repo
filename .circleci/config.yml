@@ -24,9 +24,20 @@ jobs:
       - run:
           name: Sleep another 10 seconds
           command: sleep 10
+  sleep_and_fail:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run:
+          name: Sleep 12 seconds and Fail
+          command: |
+            sleep 12
+            echo "This job will fail"
+            exit 1
 workflows:
   version: 2
   new_workflow:
     jobs:
       - hello_world_7
       - hello_world_14
+      - sleep_and_fail
