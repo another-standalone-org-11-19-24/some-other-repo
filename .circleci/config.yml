@@ -19,19 +19,9 @@ jobs:
             sleep 14
             echo "This job will fail intentionally"
             exit 1
-  hello_world_21:
-    docker:
-      - image: circleci/python:3.8
-    steps:
-      - run:
-          name: Sleep 21 seconds and Print Hello World
-          command: |
-            sleep 21
-            echo "Hello, World!"
 workflows:
   version: 2
   new_workflow:
     jobs:
       - hello_world_7
       - hello_world_14
-      - hello_world_21
