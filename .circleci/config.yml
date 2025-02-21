@@ -18,6 +18,9 @@ jobs:
           command: |
             sleep 14
             echo "This job will no longer fail"
+      - run:
+          name: Sleep 10 seconds
+          command: sleep 10
 workflows:
   version: 2
   new_workflow:
