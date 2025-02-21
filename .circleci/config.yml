@@ -14,11 +14,10 @@ jobs:
       - image: circleci/python:3.8
     steps:
       - run:
-          name: Sleep 14 seconds and Fail
+          name: Sleep 14 seconds and Print Message
           command: |
             sleep 14
-            echo "This job will fail intentionally"
-            exit 1
+            echo "This job will no longer fail"
 workflows:
   version: 2
   new_workflow:
