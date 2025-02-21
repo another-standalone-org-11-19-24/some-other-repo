@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Sleep 10 seconds
           command: sleep 10
+      - run:
+          name: Sleep another 10 seconds
+          command: sleep 10
 workflows:
   version: 2
   new_workflow:
