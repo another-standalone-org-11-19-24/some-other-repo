@@ -24,17 +24,9 @@ jobs:
       - run:
           name: Sleep another 1 second
           command: sleep 1
-  sleep_two_seconds:
-    docker:
-      - image: python:3.8-slim
-    steps:
-      - run:
-          name: Sleep 2 seconds
-          command: sleep 2
 workflows:
   version: 2
   new_workflow:
     jobs:
       - hello_world_7
       - hello_world_14
-      - sleep_two_seconds
