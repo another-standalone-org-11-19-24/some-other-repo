@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   hello_world_7:
     docker:
-      - image: circleci/python:3.8
+      - image: python:3.8-slim
     steps:
       - run:
           name: Sleep 1 second and Print Hello World
@@ -11,7 +11,7 @@ jobs:
             echo "Hello, World!"
   hello_world_14:
     docker:
-      - image: circleci/python:3.8
+      - image: python:3.8-slim
     steps:
       - run:
           name: Sleep 1 second and Print Message
