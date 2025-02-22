@@ -5,25 +5,25 @@ jobs:
       - image: circleci/python:3.8
     steps:
       - run:
-          name: Sleep 7 seconds and Print Hello World
+          name: Sleep 1 second and Print Hello World
           command: |
-            sleep 7
+            sleep 1
             echo "Hello, World!"
   hello_world_14:
     docker:
       - image: circleci/python:3.8
     steps:
       - run:
-          name: Sleep 14 seconds and Print Message
+          name: Sleep 1 second and Print Message
           command: |
-            sleep 14
+            sleep 1
             echo "This job will no longer fail"
       - run:
-          name: Sleep 10 seconds
-          command: sleep 10
+          name: Sleep 1 second
+          command: sleep 1
       - run:
-          name: Sleep another 10 seconds
-          command: sleep 10
+          name: Sleep another 1 second
+          command: sleep 1
 workflows:
   version: 2
   new_workflow:
