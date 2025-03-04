@@ -1,16 +1,26 @@
 version: 2.1
 jobs:
-  hello_world_20:
+  hello_world_10:
     docker:
       - image: python:3.8-slim
     steps:
       - run:
-          name: Sleep 20 seconds and Print Hello World
+          name: Sleep 10 seconds and Print Hello World
           command: |
-            sleep 20
+            sleep 10
             echo "Hello, World!"
+  hello_world_5:
+    docker:
+      - image: python:3.8-slim
+    steps:
+      - run:
+          name: Sleep 5 seconds and Print Hello Again
+          command: |
+            sleep 5
+            echo "Hello, Again!"
 workflows:
   version: 2
   new_workflow:
     jobs:
-      - hello_world_20
+      - hello_world_10
+      - hello_world_5
