@@ -18,9 +18,19 @@ jobs:
           command: |
             sleep 10
             echo "Hello, World!"
+  hello_world_20:
+    docker:
+      - image: python:3.8-slim
+    steps:
+      - run:
+          name: Sleep 20 seconds and Print Hello World
+          command: |
+            sleep 20
+            echo "Hello, World!"
 workflows:
   version: 2
   new_workflow:
     jobs:
       - hello_world_7
       - hello_world_10
+      - hello_world_20
