@@ -5,9 +5,9 @@ jobs:
       - image: python:3.8-slim
     steps:
       - run:
-          name: Sleep 5 seconds and Print Hello Again
+          name: Sleep 1 second and Print Hello Again
           command: |
-            sleep 5
+            sleep 1
             echo "Hello, Again!"
 workflows:
   version: 2
