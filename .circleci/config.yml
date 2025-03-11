@@ -9,6 +9,11 @@ jobs:
           command: |
             sleep 3
             echo "Hello, Again!"
+      - run:
+          name: Sleep 3 seconds and Print Hello Once More
+          command: |
+            sleep 3
+            echo "Hello, Once More!"
 workflows:
   version: 2
   new_workflow:
