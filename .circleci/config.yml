@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: go bild -v ./...
+          command: go build -v ./...
 
   test:
     docker:
@@ -26,4 +26,4 @@ workflows:
       - build
       - test:
           requires:
-            - build 
+            - build
