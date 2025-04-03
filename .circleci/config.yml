@@ -16,6 +16,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Task
+          command: |
+            curl -sL https://taskfile.dev/install.sh | sh
+      - run:
           name: Run Tests
           command: task test
 
