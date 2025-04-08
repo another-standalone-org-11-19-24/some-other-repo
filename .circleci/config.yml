@@ -7,14 +7,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build
+          name: "Build"
           command: go build -v ./...
 
+# This is intentional invalid YAML below
   test:
-    docker:
-      - image: cimg/go:1.21
-    steps:
+  is-broken:
+   - not-valid-yaml
+   steps:
       - checkout
+      [ ] this is completely invalid structure
       - run:
           name: Install Task
           command: |
