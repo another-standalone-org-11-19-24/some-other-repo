@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Build
-          command go build -v ./...
+          command: go build -v ./...
 
   test:
     docker:
