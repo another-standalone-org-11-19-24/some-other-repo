@@ -10,13 +10,11 @@ jobs:
           name: "Build"
           command: go build -v ./...
 
-# This is intentional invalid YAML below
   test:
-  is-broken:
-   - not-valid-yaml
-   steps:
+    docker:
+      - image: cimg/go:1.21
+    steps:
       - checkout
-      [ ] this is completely invalid structure
       - run:
           name: Install Task
           command: go install github.com/go-task/task/v3/cmd/task@latest
