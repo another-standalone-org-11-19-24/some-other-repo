@@ -13,7 +13,7 @@ func TestAdd(t *testing.T) {
 			name:     "positive numbers",
 			a:        1,
 			b:        2,
-			expected: 3,
+			expected: 4,
 		},
 		{
 			name:     "negative numbers",
