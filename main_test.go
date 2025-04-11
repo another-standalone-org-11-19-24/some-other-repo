@@ -13,7 +13,7 @@ func TestAdd(t *testing.T) {
 			name:     "positive numbers",
 			a:        1,
 			b:        2,
-			expected: 4,
+			expected: 3,
 		},
 		{
 			name:     "negative numbers",
@@ -27,13 +27,19 @@ func TestAdd(t *testing.T) {
 			b:        5,
 			expected: 5,
 		},
+		{
+			name:     "test with JSON-breaking chars: \" \\ \n \t \r \f { } ,",
+			a:        10,
+			b:        20,
+			expected: 40,
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := Add(tt.a, tt.b)
 			if result != tt.expected {
-				t.Errorf("Add(%d, %d) = %d; want %d", tt.a, tt.b, result, tt.expected)
+				t.Errorf("Add(%d, %d) = %d; want %d for test: %s", tt.a, tt.b, result, tt.expected, tt.name)
 			}
 		})
 	}
