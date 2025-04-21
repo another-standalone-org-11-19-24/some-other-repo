@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"strings"
+	"testing"
+)
 
 func TestAdd(t *testing.T) {
 	tests := []struct {
@@ -42,5 +46,31 @@ func TestAdd(t *testing.T) {
 				t.Errorf("Add(%d, %d) = %d; want %d for test: %s", tt.a, tt.b, result, tt.expected, tt.name)
 			}
 		})
+	}
+}
+
+// TestWithLargeOutput is designed to generate an error message exceeding 300,000 characters
+func TestWithLargeOutput(t *testing.T) {
+	// This test will always fail
+	expected := 42
+	actual := 0
+
+	// Generate a large string that will be part of the error message
+	var errorBuilder strings.Builder
+
+	// Each line will have a sequential number
+	for i := 0; i < 30000; i++ {
+		// Format: Line #00000: followed by the number repeated 10 times to make it easier to spot truncation
+		lineNum := fmt.Sprintf("%05d", i)
+		errorBuilder.WriteString(fmt.Sprintf("Line #%s: %s %s %s %s %s\n",
+			lineNum, lineNum, lineNum, lineNum, lineNum, lineNum))
+	}
+
+	largeString := errorBuilder.String()
+
+	// Fail the test with a large error message
+	if actual != expected {
+		t.Errorf("Test failed on purpose to generate large output.\nExpected: %d\nActual: %d\n\nLarge error data follows:\n%s",
+			expected, actual, largeString)
 	}
 }
