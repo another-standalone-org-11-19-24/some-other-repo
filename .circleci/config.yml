@@ -9,13 +9,22 @@ jobs:
       - run:
           name: "Build"
           command: go build -v ./...
+  test:
+    docker:
+      - image: cimg/go:1.24
+    steps:
+      - checkout
+      - run:
+          name: "Install Task"
+          command: go install github.com/go-task/task/v3/cmd/task@latest
       - run:
           name: "Run Tests"
-          command: |
-            go install github.com/go-task/task/v3/cmd/task@latest
-            task test
+          command: task test
 
 workflows:
   build-and-test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
