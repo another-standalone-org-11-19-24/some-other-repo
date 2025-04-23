@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Run Tests"
+          name: "Run Tests 4"
           command: task test
 
 workflows:
