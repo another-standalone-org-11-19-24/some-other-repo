@@ -31,7 +31,7 @@ func TestAdd(t *testing.T) {
 			name:     "test with JSON-breaking chars: \" \\ \n \t \r \f { } ,",
 			a:        10,
 			b:        20,
-			expected: 40,
+			expected: 30,
 		},
 	}
 
