@@ -27,12 +27,12 @@ jobs:
       - image: cimg/base:stable
     steps:
       - run:
-          name: "Wait 30 seconds"
+          name: "Wait 10 seconds"
           command: |
-            echo "Starting 30 second wait..."
-            sleep 30
-            echo "Wait complete - returning success!"
-            exit 0
+            echo "Starting 10 second wait..."
+            sleep 10
+            echo "Wait complete - returning fail!"
+            exit 1
 
   post-approval-job:
     docker:
