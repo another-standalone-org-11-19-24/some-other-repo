@@ -31,8 +31,8 @@ jobs:
           command: |
             echo "Starting 10 second wait..."
             sleep 10
-            echo "Wait complete - returning fail!"
-            exit 1
+            echo "Wait complete - returning success!"
+            exit 0
 
   post-approval-job:
     docker:
@@ -55,8 +55,7 @@ workflows:
       - approve-me:
           type: approval
           requires:
-            - test
-            - wait-30-seconds
+            - build
       - post-approval-job:
           requires:
             - approve-me
