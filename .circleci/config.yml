@@ -32,7 +32,7 @@ jobs:
             echo "Starting 10 second wait..."
             sleep 10
             echo "Wait complete - returning success!"
-            exit 0
+            exit 1
 
   post-approval-job:
     docker:
