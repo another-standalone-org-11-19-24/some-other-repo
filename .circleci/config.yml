@@ -22,6 +22,28 @@ jobs:
           name: Run Tests
           command: task test
 
+  wait-30-seconds:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: "Wait 30 seconds"
+          command: |
+            echo "Starting 30 second wait..."
+            sleep 30
+            echo "Wait complete - returning success!"
+            exit 0
+
+  post-approval-job:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: "Job after approval"
+          command: |
+            echo "This job runs after manual approval"
+            echo "Success!"
+
 workflows:
   build-and-test:
     jobs:
@@ -29,3 +51,12 @@ workflows:
       - test:
           requires:
             - build
+      - wait-30-seconds  # This runs in parallel with other jobs
+      - approve-me:
+          type: approval
+          requires:
+            - test
+            - wait-30-seconds
+      - post-approval-job:
+          requires:
+            - approve-me
